@@ -69,10 +69,9 @@
             <li>Intro: why a debugger?</li>
             <li>Navigating through code</li>
             <li>Scenario A: the visible bug</li>
-            <li>Scenario B: the invisible bug</li>
-            <li>Scenario C: the traitor</li>
-            <li>Scenario D: the thing that should not be (in a test)</li>
-            <li>Tips on setting up your debugger</li>
+            <li>Scenario B: the traitor</li>
+            <li>Scenario C: The failing test</li>
+            <li>Debugging scripts</li>
           </ol>
         </section>
 
@@ -85,13 +84,23 @@
             <h2>A typical IRC discussion</h2>
             <pre style="margin-left: -100px; width: 120%;">
               <code class="accesslog hljs">
-              11:30 someuser > Hi! Does anyone know why by callback is not getting
-                               called? I have tried everything and I don't
-                               understand why it doesn't work.
-              11:31 juampynr > someuser, no idea. You will have to debug your
-                               code to see why X is not working.
-              11:32 someuser > Oh yes, I have heard of the debugger, but I
-                               don't have time now. I will try later.
+JoseCarlosss> buenas a todos, a que puede ser debido que ejecuto comando de drush y funciona perfectamente y si creo un script de drush cuando ejecuto dicho script me da permiso denegado al ejecutar un comando de drush dentro del script ?
+JoseCarlosss> es decir, mismo comando en script me da permiso denegado y por consola me funciona
+leandro> JoseCarlosss: comprueba la ruta desde la q ejecutas el script y, dentro de éste, si se posiciona correctamente en el directorio adecuado donde tengas instalado el Drupal
+JoseCarlosss> ok, lo miro aunque creo que está correcto al 99% seguro
+JoseCarlosss> gracias leandro
+ nesimo (~mmanzano@63.red-83-55-196.dynamicip.rima-tde.net) has joined #drupal-es
+e0ipso> plopesc te veré en la drupalcamp?
+plopesc> yep e0ipso , llego el viernes a medio día
+e0ipso> mola
+e0ipso> igual que yo
+JoseCarlosss> leandro,  comprobado y nada
+juampynr> leandro, hola! vienes a la camp?
+JoseCarlosss> no es tema de rutas
+JoseCarlosss> juampynr, como andas maestro ya estás por granada?
+juampynr> JoseCarlosss, cómo invocas el comando desde el script? qué comando es?
+juampynr> JoseCarlosss, hola! no, salgo a las 3 hoy
+JoseCarlosss> es un drush make
               </code>
             </pre>
           </section>
@@ -100,11 +109,28 @@
             <h2>Hours later...</h2>
             <pre style="margin-left: -100px; width: 120%;">
               <code class="accesslog hljs">
-              17:50 someuser > Hi! Does anyone know why X is not working? I still
-                               haven't figured out what is wrong with it. Can
-                               anyone help me?
-              17:52 juampynr > someuser, did you give a chance to the debugger?
-              17:56 someuser > No, but you know what: I will install it tomorrow.
+JoseCarlosss> lo curioso es que en dos ordenadores funciona y un tercero no..
+JoseCarlosss> no se que habrá raro ..
+juampynr> JoseCarlosss, qué error recibes?
+JoseCarlosss> yo tiro pallá el viernes al final
+JoseCarlosss> permiso denegado
+leandro> juampynr: hola ^^ no, no creo que vaya. me vienen mal las fechas.
+juampynr> si es un make, entonces se está descargando módulos, no? quizás los permisos de algunos de esos directorios estén mal
+juampynr> prueba a ejecutar el omando con -v -d JoseCarlosss
+juampynr> eso te va a dar más info
+JoseCarlosss> lo curioso es que si hago el drush make en consola sin el script me rula
+juampynr> qué pena leandro
+juampynr> JoseCarlosss, qué tiene de especial el script?
+juampynr> el usuario de consola es el mismo que el que ejecuta el script?
+JoseCarlosss> si
+JoseCarlosss> tiene que ser un tema relacionado con eso
+JoseCarlosss> pero n olo veo
+ gvso (~gvso@host-103.58.217.201.copaco.com.py) has joined #drupal-es
+ ajmantis has quit (Remote host closed the connection)
+juampynr> JoseCarlosss, cómo se llamaba el de la tele, del de AAAAA JUGAAAAAAAR
+juampynr> recuerdas?
+JoseCarlosss> joaquín prat no?
+juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
               </code>
             </pre>
           </section>
@@ -119,7 +145,7 @@
 
         <section>
           <section>
-            <h2>Navigating through code</h2>
+            <h2>A simple debugger</h2>
           </section>
           <section data-background="images/debugger.png">
           </section>
@@ -152,25 +178,32 @@
               <h2>Scenario B: The traitor</h2>
             </div>
           </section>
+
           <section data-background="images/invisible-bug-issue.png" data-background-size="80%">
           </section>
+
           <section>
             <h2>Step 1: find candidates to debug</h2>
           </section>
+
           <section data-background-video="videos/invisible-bug-candidates-2607920.mp4" data-background-video-loop data-background-color="#000000">
           </section>
+
           <section data-background="images/dog-digging.jpg">
             <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -300px; right: -300px;">
               <h2>Step 2: Dig, dig, dig!</h2>
             </div>
           </section>
+
           <section data-background-video="videos/invisible-bug-2607920.mp4" data-background-video-loop data-background-color="#000000">
           </section>
+
           <section data-background="images/invisible-bug-fix.png">
             <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -350px; right: -300px;">
               <h2>Hours later...</h2>
             </div>
           </section>
+
           <section>
             <h2>Tips</h2>
             <ol>
@@ -186,9 +219,10 @@
         <section>
           <section data-background="images/ironman-fail.gif">
             <div style="background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 20px; position: absolute; top: -350px; lefy: -300px;">
-              <h2>Scenario D: The failing test</h2>
+              <h2>Scenario C: The failing test</h2>
             </div>
           </section>
+
           <section style="text-align: left;">
             <h2>Debugging a Web/Kernel test</h2>
             <p><em>Web tests</em> involve two sites:</p> 
@@ -204,16 +238,20 @@
                they call the API's methods directly so there are no parent/child site
                interactions.</p> 
           </section>
+
           <section data-background-video="videos/debugging-test-code.mp4" data-background-video-loop data-background-color="#000000">
           </section>
+
           <section>
             <h2>Debugging a Web's child site</h2>
             <p>Currently broken :-(.</p>
             <p>See <a href="https://www.drupal.org/node/2552267" target="_blank">this core issue</a> for further details.</p>
           </section>
+
           <section>
             <h2>Debugging a unit test</h2>
           </section>
+
           <section data-background-video="videos/debugging-unit.mp4" data-background-video-loop data-background-color="#000000">
           </section>
         </section>
@@ -222,23 +260,27 @@
           <section>
             <h2>Debugging scripts</h2>
           </section>
+
           <section>
             <h2>Debugging a Drush command</h2>
             <p>Some tasks, such as route definition, happen when Drush rebuilds its
                data structures (<em>drush cr</em>). Therefore, we need to be able
                to listen to command line connections in order to debug this logic.</p>
-            <p>The <em>drush</em> executable, when invoked, it evaluates your OS
+            <p>The <em>drush</em> executable, when invoked, evaluates your OS
                and then launches Drush as a sub-process. Therefore, in order to
                debug a command, we need to skip the first step and call the Drush script
                directly (thanks @_jonhattan_).</p>
           </section>
+
           <section data-background-video="videos/debugging-drush.mp4" data-background-video-loop data-background-color="#000000">
           </section>
+
           <section>
             <h2>Debugging a Console command</h2>
             <p>Drupal Console invokes its commands within the same process, so no
                tweaking is needed to debug its code.</p>
           </section>
+
           <section data-background-video="videos/debugging-drupalconsole.mp4" data-background-video-loop data-background-color="#000000">
           </section>
         </section>
