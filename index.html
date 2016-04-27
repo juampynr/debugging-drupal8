@@ -54,7 +54,7 @@
         </section>
 
         <section data-background="images/talking.jpg">
-          <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; left: -20%">
+          <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; left: 0%">
             <a href="http://www.amazon.com/Drush-Developers-Juampy-Novillo-Requena-ebook/dp/B00SYOBXYG" target="_blank"><img src="images/drush_book.jpg" width="200"/></a>
             </br>
             <p><a href="https://www.lullabot.com/who-we-are/juampy-nr" target="_blank">Juampy NR</a> - <a href="https://twitter.com/juampynr" target="_blank">@juampynr</a></p>
@@ -147,6 +147,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
           <section>
             <h2>A simple debugger</h2>
           </section>
+
           <section data-background="images/debugger.png">
           </section>
         </section>
@@ -174,7 +175,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
 
         <section>
           <section data-background="images/traitor.jpeg">
-            <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; position: absolute; top: -350px; right: -300px;">
+            <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 10px; position: absolute; top: -380px; left: 20%">
               <h2>Scenario B: The traitor</h2>
             </div>
           </section>
@@ -189,7 +190,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
           <section data-background-video="videos/invisible-bug-candidates-2607920.mp4" data-background-video-loop data-background-color="#000000">
           </section>
 
-          <section data-background="images/dog-digging.jpg">
+          <section data-background="images/dog-digging.jpg" style="left: -25%">
             <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -300px; right: -300px;">
               <h2>Step 2: Dig, dig, dig!</h2>
             </div>
@@ -199,7 +200,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
           </section>
 
           <section data-background="images/invisible-bug-fix.png">
-            <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -350px; right: -300px;">
+            <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -350px; right: -10%">
               <h2>Hours later...</h2>
             </div>
           </section>
@@ -328,7 +329,11 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true }
-        ]
+        ],
+        keyboard: {
+          39: 'next',
+          37: 'prev'
+        }
       });
 
     </script>
