@@ -154,7 +154,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
             <h2>A simple debugger</h2>
           </section>
 
-          <section data-background="images/debugger.png">
+          <section data-background="images/debugger.jpg">
           </section>
         </section>
 
@@ -164,9 +164,9 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
               <h2>Scenario A: The visible bug</h2>
             </div>
           </section>
-          <section data-background="images/visible-bug-issue.png" data-background-size="90%">
+          <section data-background="images/mailchimp-warning.jpg" data-background-size="90%">
           </section>
-          <section data-background-video="videos/visible-bug-2657914.mp4" data-background-video-loop data-background-color="#000000">
+          <section data-background-video="videos/debugging-mailchimp-warning.mp4" data-background-video-loop data-background-color="#000000">
           </section>
           <section>
             <h2>Tips</h2>
@@ -186,29 +186,16 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
             </div>
           </section>
 
-          <section data-background="images/invisible-bug-issue.png" data-background-size="80%">
-          </section>
-
-          <section>
-            <h2>Step 1: find candidates to debug</h2>
-          </section>
-
-          <section data-background-video="videos/invisible-bug-candidates-2607920.mp4" data-background-video-loop data-background-color="#000000">
+          <section data-background-video="videos/traitor-debugging-media.mp4" data-background-video-loop data-background-color="#000000">
           </section>
 
           <section data-background="images/dog-digging.jpg" style="left: -25%">
             <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -300px; right: -300px;">
-              <h2>Step 2: Dig, dig, dig!</h2>
+              <h2>If you are lost, then dig, dig, dig!</h2>
             </div>
           </section>
 
-          <section data-background-video="videos/invisible-bug-2607920.mp4" data-background-video-loop data-background-color="#000000">
-          </section>
-
-          <section data-background="images/invisible-bug-fix.png">
-            <div style="background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 20px; position: absolute; top: -350px; right: -10%">
-              <h2>Hours later...</h2>
-            </div>
+          <section data-background-video="videos/debugging-request.mp4" data-background-video-loop data-background-color="#000000">
           </section>
 
           <section>
@@ -230,65 +217,53 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
             </div>
           </section>
 
-          <section style="text-align: left;">
-            <h2>Debugging a Web/Kernel test</h2>
-            <p><em>Web tests</em> involve two sites:</p> 
-            <ol>
-              <li>The one running the test — the parent site.</li>
-              <li>The one receiving and returning responses — the child site.</li>
-            </ol>
+          <section>
+            <h2>Drupal 8 has the following types of tests:</h2>
+            <ul>
+              <li>JavaScript tests (extend from JavascriptTestBase)</li>
+              <li>Browswer tests (extend from BrowserTestBase)</li>
+              <li>Kernel tests (extend from KernelTestBase)</li>
+              <li>Unit tests (extend from UnitTestBase)</li>
+            </ul>
             <p>
-              The parent site makes cURL requests to the child site and then it evaluates
-              the responses by making assertions.
+              All of the above can be tested. We just need to make sure that:
             </p>
-            <p><em>Kernel</em> tests use Drupal's minimal resources to test a module's API.
-               they call the API's methods directly so there are no parent/child site
-               interactions.</p> 
-          </section>
-
-          <section data-background-video="videos/debugging-test-code.mp4" data-background-video-loop data-background-color="#000000">
-          </section>
-
-          <section>
-            <h2>Debugging a Web's child site</h2>
-            <p>Currently <strike>broken :-( </strike> &nbsp; fixed!.</p>
-            <p><strike>See <a href="https://www.drupal.org/node/2552267" target="_blank">this core issue</a> for further details.</strike></p>
-          </section>
-
-          <section data-background="images/debugging-web-tests-child.png">
+            <ol>
+              <li>Xdebug is installed both in the web server and the command line.</li>
+              <li>Our IDE is able to listen to several connections.</li>
+            </ol>
           </section>
 
           <section>
-            <h2>Debugging a unit test</h2>
+            <h2>Example: debugging a JavaScript test</h2>
           </section>
 
-          <section data-background-video="videos/debugging-unit.mp4" data-background-video-loop data-background-color="#000000">
+          <section data-background-video="videos/debugging-javascript-test.mp4" data-background-video-loop data-background-color="#000000">
           </section>
         </section>
 
         <section>
           <section>
-            <h2>Debugging scripts</h2>
+            <h2>Debugging command-line scripts</h2>
           </section>
 
           <section>
             <h2>Debugging a Drush command</h2>
-            <p>Some tasks, such as route definition, happen when Drush rebuilds its
+            <p>Some tasks, such as route definition, happen when Drush rebuilds Drupal's
                data structures (<em>drush cr</em>). Therefore, we need to be able
                to listen to command line connections in order to debug this logic.</p>
-            <p>The <em>drush</em> executable, when invoked, evaluates your OS
-               and then launches Drush as a sub-process. Therefore, in order to
-               debug a command, we need to skip the first step and call the Drush script
-               directly (thanks @_jonhattan_).</p>
+            <p>In the following clip we will debug the execution of <em>drush cron<em></em></eM>.</p>
           </section>
 
-          <section data-background-video="videos/debugging-drush.mp4" data-background-video-loop data-background-color="#000000">
+          <section data-background-video="videos/debugging-cron.mp4" data-background-video-loop data-background-color="#000000">
           </section>
 
           <section>
             <h2>Debugging a Console command</h2>
-            <p>Drupal Console invokes its commands within the same process, so no
-               tweaking is needed to debug its code.</p>
+            <p>Same as we did with Drush commands, Console commands can be debugged too.</p>
+          </section>
+
+          <section data-background-video="videos/debugging-drupalconsole.mp4" data-background-video-loop data-background-color="#000000">
           </section>
 
         </section>
@@ -306,6 +281,7 @@ juampynr> pues AAAAAAAAA DEBUGUEEAAAAAAAAAAAAAARRRR
             <li><a href="http://psysh.org/" target="_blank">PhySH</a> (via <em>drush core-cli</em>).</li>
             <li><a href="https://xdebug.org/docs/execution_trace" target="_blank">Xdebug Traces</a>.</li>
             <li><a href="http://raveren.github.io/kint/" target="_blank">Kint</a> (via devel module).</li>
+            <li><a href="https://confluence.jetbrains.com/display/PhpStorm/Drupal+Development+using+PhpStorm" target="_blank">Configuring PHPStorm for Drupal development.</a></li>
             <li><a href="https://github.com/juampynr/Ubuntu-Installer/blob/master/installer.sh#L63" target="_blank">My VIM setup</a>.</li>
           </ul>
         </section>
